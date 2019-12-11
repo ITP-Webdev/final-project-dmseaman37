@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 export default function TableCount(props) {
   const { table, children } = props;
   const count = props.table.length;
 
-  if (typeof(children) === 'function') {
+  if (typeof(children) === "function") {
     return children(table);
   } else {
     return (

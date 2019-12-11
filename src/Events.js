@@ -1,15 +1,18 @@
-import React from 'react';
-import TableCount from './TableCount';
-import DocumentTitle from 'react-document-title';
-import { Link } from 'react-router-dom';
+import React from "react";
+import TableCount from "./TableCount";
+import DocumentTitle from "react-document-title";
+import EmailValidator from "./EmailValidator";
+import { Link } from "react-router-dom";
 
-const API = 'https://dseaman-itp404-project-api.herokuapp.com';
+const API = "https://dseaman-itp404-project-api.herokuapp.com";
 
 export default class Events extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: []
+      events: [],
+      email: "",
+      message: ""
     }
   }
 
@@ -21,7 +24,7 @@ export default class Events extends React.Component {
 
   deleteEvent = async (id) => {
     await fetch(`${API}/api/events/${id}`, {
-      method: 'DELETE'
+      method: "DELETE"
     });
 
     this.setState({
@@ -30,7 +33,7 @@ export default class Events extends React.Component {
       })
     });
 
-    window.alert('Event deleted');
+    window.alert("Event deleted");
   }
 
   render() {
@@ -50,9 +53,15 @@ export default class Events extends React.Component {
               {this.state.events.map((eventObject) => {
                 return(
                   <tr>
-                    <td><Link to={`/event/edit/${eventObject.id}`} key={eventObject.id}>{eventObject.name}</Link></td>
-                    <td>{eventObject.date}</td>
-                    <td>{eventObject.location}</td>
+                    <td>
+                      <Link to={`/event/edit/${eventObject.id}`} key={eventObject.id}>{eventObject.name}</Link>
+                    </td>
+                    <td>
+                      {eventObject.date}
+                    </td>
+                    <td>
+                      {eventObject.location}
+                    </td>
                     <td>
                       <button className="btn btn-danger" onClick={this.deleteEvent.bind(this, eventObject.id)}>
                         Delete
@@ -65,6 +74,7 @@ export default class Events extends React.Component {
           </table>
           <TableCount table={this.state.events} />
           <Link to="/event/add">Add an event</Link>
+          <EmailValidator email={this.state.email} />
         </div>
       </DocumentTitle>
     );

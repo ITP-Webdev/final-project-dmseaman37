@@ -1,16 +1,16 @@
-import React from 'react';
-import DocumentTitle from 'react-document-title';
-import { Redirect } from 'react-router-dom';
+import React from "react";
+import DocumentTitle from "react-document-title";
+import { Redirect } from "react-router-dom";
 
-const API = 'https://dseaman-itp404-project-api.herokuapp.com';
+const API = "https://dseaman-itp404-project-api.herokuapp.com";
 
 export default class Edit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      date: '',
-      location: ''
+      name: "",
+      date: "",
+      location: ""
     }
   }
 
@@ -43,7 +43,7 @@ export default class Edit extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (this.state.name === '') {
+    if (this.state.name === "") {
       await this.setState({
         nameError: true
       });
@@ -53,7 +53,7 @@ export default class Edit extends React.Component {
       })
     }
 
-    if (this.state.date === '') {
+    if (this.state.date === "") {
       await this.setState({
         dateError: true
       });
@@ -63,7 +63,7 @@ export default class Edit extends React.Component {
       })
     }
 
-    if (this.state.location === '') {
+    if (this.state.location === "") {
       await this.setState({
         locationError: true
       });
@@ -77,9 +77,9 @@ export default class Edit extends React.Component {
 
     if ((!this.state.nameError) && (!this.state.dateError) && (!this.state.locationError)) {
       await fetch(`${API}/api/events/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           name: this.state.name,
@@ -89,13 +89,13 @@ export default class Edit extends React.Component {
       });
 
       this.setState({ redirectToEventsPage: true });
-      alert('Event edited');
+      alert("Event edited");
     }
   }
 
   render() {
     if (this.state.redirectToEventsPage) {
-      return <Redirect to='/events' />
+      return <Redirect to="/events" />
     }
 
     return (

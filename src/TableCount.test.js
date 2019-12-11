@@ -1,16 +1,16 @@
-import React from 'react';
-import TableCount from './TableCount';
-import Bio from './Bio';
-import { render } from '@testing-library/react';
+import React from "react";
+import TableCount from "./TableCount";
+import Bio from "./Bio";
+import { render } from "@testing-library/react";
 
-it('renders the totatl content of an array', () => {
-  const { container } = render(<TableCount table={['a', 'b', 'c']} />);
-
-  expect(container.textContent).toBe('3 Entries');
+it("renders the totatl content of an array", () => {
+  const { container } = render(<TableCount table={["a", "b", "c"]} />);
+  expect(container.textContent).toBe("3 Entries");
 });
 
-it('renders the children prop', () => {
-  const table = ['a', 'b', 'c'];
+it("renders the children prop", () => {
+  const table = ["a", "b", "c"];
+
   const { container } = render(
     <TableCount table={table}>
       {
@@ -23,5 +23,5 @@ it('renders the children prop', () => {
     </TableCount>
   );
 
-  expect(container.textContent).toBe('3 letters');
+  expect(container.textContent).toBe("3 letters");
 });

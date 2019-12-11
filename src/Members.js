@@ -1,8 +1,8 @@
-import React from 'react';
-import TableCount from './TableCount';
-import DocumentTitle from 'react-document-title';
+import React from "react";
+import TableCount from "./TableCount";
+import DocumentTitle from "react-document-title";
 
-const API = 'https://dseaman-itp404-project-api.herokuapp.com';
+const API = "https://dseaman-itp404-project-api.herokuapp.com";
 
 export default class Members extends React.Component {
   constructor(props) {
