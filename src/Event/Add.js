@@ -85,8 +85,6 @@ export default class Add extends React.Component {
       return <Redirect to="/events" />
     }
 
-    console.log(this.state);
-
     return (
       <DocumentTitle title="Add an event">
         <form onSubmit={this.handleSubmit}>

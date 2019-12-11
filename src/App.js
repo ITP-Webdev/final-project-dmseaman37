@@ -17,9 +17,9 @@ export default function App(props) {
           <Router>
             <div className="header">
               <ul className="nav nav-pills nav-fill justify-content-center">
-                <li className="nav-item"><NavLink to="/">Home</NavLink></li>
-                <li className="nav-item"><NavLink to="/members">Members</NavLink></li>
-                <li className="nav-item"><NavLink to="/events">Events</NavLink></li>
+                <li className="nav-item"><NavLink to="/"><h2>Home</h2></NavLink></li>
+                <li className="nav-item"><NavLink to="/members"><h2>Members</h2></NavLink></li>
+                <li className="nav-item"><NavLink to="/events"><h2>Events</h2></NavLink></li>
               </ul>
             </div>
             <Switch>
