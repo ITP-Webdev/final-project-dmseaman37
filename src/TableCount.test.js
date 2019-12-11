@@ -25,7 +25,3 @@ it('renders the children prop', () => {
 
   expect(container.textContent).toBe('3 letters');
 });
-
-it('throws an error when table is not included', () => {
-  expect(<Bio />).toThrow();
-})
